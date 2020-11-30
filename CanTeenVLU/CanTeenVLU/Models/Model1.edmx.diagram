@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="04871c80142c44de9099cf5ac74fe87f" Name="Diagram1">
+        <EntityTypeShape EntityType="QUANLYCANTEENModel.ACCOUNT" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="QUANLYCANTEENModel.CATEGORY" Width="1.5" PointX="1.5" PointY="9.125" />
+        <EntityTypeShape EntityType="QUANLYCANTEENModel.CONTACT" Width="1.5" PointX="5.75" PointY="9.375" />
+        <EntityTypeShape EntityType="QUANLYCANTEENModel.CUSTOMER" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QUANLYCANTEENModel.FACULTY" Width="1.5" PointX="1.5" PointY="13" />
+        <EntityTypeShape EntityType="QUANLYCANTEENModel.FOOD" Width="1.5" PointX="3.75" PointY="8.75" />
+        <EntityTypeShape EntityType="QUANLYCANTEENModel.INTRODUCTION" Width="1.5" PointX="7.75" PointY="2.375" />
+        <EntityTypeShape EntityType="QUANLYCANTEENModel.MENU" Width="1.5" PointX="6" PointY="4.75" />
+        <EntityTypeShape EntityType="QUANLYCANTEENModel.NOTIFICATION" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="QUANLYCANTEENModel.ORDER" Width="1.5" PointX="3" PointY="4.625" />
+        <EntityTypeShape EntityType="QUANLYCANTEENModel.ORDER_DETAIL" Width="1.5" PointX="8.25" PointY="5" />
+        <EntityTypeShape EntityType="QUANLYCANTEENModel.SLIDER" Width="1.5" PointX="7.75" PointY="9.375" />
+        <AssociationConnector Association="QUANLYCANTEENModel.FK__MENU__ACCOUNT_ID__173876EA" />
+        <AssociationConnector Association="QUANLYCANTEENModel.FK__ORDERS__CUST_ID__1BFD2C07" />
+        <AssociationConnector Association="QUANLYCANTEENModel.FK_NOTIFICATION_ACCOUNT" />
+        <AssociationConnector Association="QUANLYCANTEENModel.FK__FOOD__MENU_ID__117F9D94" />
+        <AssociationConnector Association="QUANLYCANTEENModel.FK__CUSTOMERS__FACUL__0519C6AF" />
+        <AssociationConnector Association="QUANLYCANTEENModel.FK__ORDERS__CUST_ID__1CF15040" />
+        <AssociationConnector Association="QUANLYCANTEENModel.FK__MENU__FOOD_ID__164452B1" />
+        <AssociationConnector Association="QUANLYCANTEENModel.FK__DETAILORD__MENU___22AA2996" />
+        <AssociationConnector Association="QUANLYCANTEENModel.FK__NOTIFICAT__CONTE__276EDEB3" />
+        <AssociationConnector Association="QUANLYCANTEENModel.FK__DETAILORD__PRICE__21B6055D" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
