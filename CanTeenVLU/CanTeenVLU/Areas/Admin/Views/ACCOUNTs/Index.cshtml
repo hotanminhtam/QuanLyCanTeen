@@ -1,11 +1,11 @@
-﻿@model IEnumerable<CanTeenVLU.Models.FOOD>
+﻿@model IEnumerable<CanTeenVLU.Models.ACCOUNT>
 
 @{
-    ViewBag.Title = "Món ăn";
+    ViewBag.Title = "Tài khoản";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Danh sách món ăn</h2>
+<h2>Tài khoản</h2>
 
 <p>
     @Html.ActionLink("Tạo mới", "Create")
@@ -16,18 +16,17 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Bảng danh sách các món ăn</h3>
+                    <h3 class="card-title">Bảng danh sách tài khoản</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>Mã món ăn</th>
-                                <th>Tên món ăn</th>
-                                <th>Mô tả</th>
-                                <th>Giá</th>
+                                <th>Email</th>
+                                <th>Password</th>
                                 <th>Hình ảnh</th>
+                                <th>Họ tên</th>
                                 <th>Trạng thái</th>
                                 <th>Hành động</th>
                             </tr>
@@ -36,22 +35,19 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FOOD_CODE)
+                                    @Html.DisplayFor(modelItem => item.EMAIL)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FOOD_NAME)
+                                    @Html.DisplayFor(modelItem => item.PASSWORD)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.DESCRIPTION)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.PRICE)
-                                </td>
-                                <td>
-                                    <img src="@item.IMAGE_URL" width="100" />
+                                    @Html.DisplayFor(modelItem => item.FULL_NAME)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.STATUS)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ROLE)
                                 </td>
                                 <td>
                                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
@@ -62,11 +58,10 @@
                         }
                         <tfoot>
                             <tr>
-                                <th>Mãmón ăn</th>
-                                <th>Tên món ăn</th>
-                                <th>Mô tả</th>
-                                <th>Giá</th>
+                                <th>Email</th>
+                                <th>Password</th>
                                 <th>Hình ảnh</th>
+                                <th>Họ tên</th>
                                 <th>Trạng thái</th>
                                 <th>Hành động</th>
                             </tr>

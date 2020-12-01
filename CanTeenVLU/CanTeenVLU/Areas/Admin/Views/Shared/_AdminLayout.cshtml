@@ -155,7 +155,7 @@
                             {
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="/Admin/CATEGORies" class="nav-link active">
+                                        <a href="/Admin/CATEGORies" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Loại món ăn</p>
                                         </a>
@@ -168,15 +168,16 @@
                                     </li>
                                 </ul>
                             }
+                            <hr style="background-color: white; background-size: 18px"/>
                             @if ((int)Session["user-role"] == 1)
                             {
                             <li class="nav-item">
-                                <a href="/Admin/Account" class="nav-link">
+                                <a href="/Admin/ACCOUNTs" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Tài khoản</p>
                                 </a>
                             </li>
-                            }
+                        }
                             <li class="nav-item">
                                 <a href="/Admin/Auth/Logout" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
