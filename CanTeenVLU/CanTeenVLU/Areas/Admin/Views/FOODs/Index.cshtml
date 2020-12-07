@@ -5,11 +5,13 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Danh sách món ăn</h2>
+<h2 style="font-family:'Times New Roman', Times, serif">Danh sách món ăn</h2>
 
-<p>
+<button style="border-radius:24px">
     @Html.ActionLink("Tạo mới", "Create")
-</p>
+</button>
+
+<hr />
 
 <section class="content">
     <div class="row">
@@ -21,7 +23,7 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                     <table id="example2" class="table table-bordered table-hover">
-                        <thead>
+                        <thead  style="text-align:center">
                             <tr>
                                 <th>Mã món ăn</th>
                                 <th>Tên món ăn</th>
@@ -34,7 +36,7 @@
                         </thead>
                         @foreach (var item in Model)
                         {
-                            <tr>
+                            <tr style="text-align:center">
                                 <td>
                                     @Html.DisplayFor(modelItem => item.FOOD_CODE)
                                 </td>
@@ -60,7 +62,7 @@
                                 </td>
                             </tr>
                         }
-                        <tfoot>
+                        <tfoot style="text-align:center">
                             <tr>
                                 <th>Mãmón ăn</th>
                                 <th>Tên món ăn</th>

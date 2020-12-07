@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CanTeenVLU.Areas.Admin.Middleware;
 using CanTeenVLU.Models;
 
 namespace CanTeenVLU.Areas.Admin.Controllers
 {
+    [LoginVerification]
     public class ACCOUNTsController : Controller
     {
         private QUANLYCANTEENEntities db = new QUANLYCANTEENEntities();

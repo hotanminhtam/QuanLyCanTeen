@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Glassy Login Form A Responsive Widget Template :: w3layouts</title>
+    <title style="font-family:'Times New Roman', Times, serif">Đăng nhập tài khoản</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,24 +27,24 @@
 <body>
     <!--header-->
     <div class="header-w3l">
-        <h1>Đăng nhập</h1>
+        <h1 style="font-family:'Times New Roman', Times, serif">Đăng nhập</h1>
     </div>
     <!--//header-->
     <!--main-->
     <div class="main-w3layouts-agileinfo">
         <!--form-stars-here-->
         <div class="wthree-form">
-            <h2>Đăng nhập tài khoản</h2>
-            <form action="@Url.Action("Login")" method="post">
+            <h2 style="font-family:'Times New Roman', Times, serif">Đăng nhập tài khoản</h2>
+            <form action="@Url.Action("Login")" method="post" autocomplete="on">
                 <div class="form-sub-w3">
-                    <input type="text" name="email" placeholder="Username " required="" />
+                    <input type="text" name="email" placeholder="Username " required="" style="font-family:'Times New Roman', Times, serif"/>
                 </div>
                 @if (Convert.ToBoolean(Session["user-not-found"]) == true)
                 {
                     <p style="color:red">User mail not found</p>
                 }
                 <div class="form-sub-w3">
-                    <input type="password" name="password" placeholder="Password" required="" />
+                    <input type="password" name="password" placeholder="Password" required="" style="font-family:'Times New Roman', Times, serif"/>
                 </div>
                 @if (Convert.ToBoolean(Session["password-incorrect"]) == true)
                 {
@@ -52,12 +52,12 @@
                 }
                 <label class="anim">
                     <input type="checkbox" class="checkbox">
-                    <span>Nhớ tài khoản</span>
-                    <a href="#">Quên mật khẩu?</a>
+                    <span style="font-family:'Times New Roman', Times, serif">Nhớ tài khoản</span>
+                    <a href="#" style="font-family:'Times New Roman', Times, serif">Quên mật khẩu?</a>
                 </label>
                 <div class="clear"></div>
                 <div class="submit-agileits">
-                    <input type="submit" value="Đăng nhập">
+                    <input type="submit" value="Đăng nhập" style="font-family:'Times New Roman', Times, serif">
                 </div>
             </form>
 
@@ -68,7 +68,7 @@
     <!--//main-->
     <!--footer-->
     <div class="footer">
-        <p>&copy; 2017 Glassy Login Form. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+        <p>Canteen Van Lang 2020</p>
     </div>
     <!--//footer-->
 </body>
