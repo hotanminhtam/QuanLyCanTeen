@@ -1,18 +1,18 @@
 ﻿@model CanTeenVLU.Models.CATEGORY
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Chi tiết";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2 style="font-family:'Times New Roman', Times, serif">Chi tiết</h2>
 
 <div>
-    <h4>CATEGORY</h4>
+    <h4 style="font-family:'Times New Roman', Times, serif">DANH MỤC</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.CATEGORY_CODE)
+            <label class="control-label col-md-2" style="font-family:'Times New Roman', Times, serif" for="IMG">Mã danh mục</label>
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CATEGORY_NAME)
+            <label class="control-label col-md-2" style="font-family:'Times New Roman', Times, serif" for="IMG">Tên danh mục</label>
         </dt>
 
         <dd>
@@ -28,7 +28,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.IMAGE_URL)
+            <label class="control-label col-md-2" style="font-family:'Times New Roman', Times, serif" for="IMG">Hình ảnh</label>
         </dt>
 
         <dd>
@@ -36,7 +36,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.STATUS)
+            <label class="control-label col-md-2" style="font-family:'Times New Roman', Times, serif" for="IMG">Trạng thái</label>
         </dt>
 
         <dd>

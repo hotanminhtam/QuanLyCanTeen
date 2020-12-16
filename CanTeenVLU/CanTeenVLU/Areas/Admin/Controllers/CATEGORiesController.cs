@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CanTeenVLU.Areas.Admin.Middleware;
 using CanTeenVLU.Models;
+using System.Transactions;
 
 namespace CanTeenVLU.Areas.Admin.Controllers
 {
@@ -43,22 +45,43 @@ namespace CanTeenVLU.Areas.Admin.Controllers
             return View();
         }
 
+        public ActionResult Picture(int id)
+        {
+            var path = Server.MapPath(PICTURE_PATH);
+            return File(path + id, "images");
+        }
+
         // POST: Admin/CATEGORies/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,CATEGORY_CODE,CATEGORY_NAME,IMAGE_URL,STATUS")] CATEGORY cATEGORY)
+        public ActionResult Create(CATEGORY model, HttpPostedFileBase img)
         {
             if (ModelState.IsValid)
             {
-                db.CATEGORies.Add(cATEGORY);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (img != null)
+                {
+                    using (var scope = new TransactionScope())
+                    {
+                        db.CATEGORies.Add(model);
+                        db.SaveChanges();
+
+                        var path = Server.MapPath(PICTURE_PATH);
+                        img.SaveAs(path + model.ID);
+
+                        scope.Complete();
+                        return RedirectToAction("Index");
+
+                    }
+                }
+                else ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
             }
 
-            return View(cATEGORY);
+            return View(model);
         }
+
+        private const string PICTURE_PATH = "~/Images";
 
         // GET: Admin/CATEGORies/Edit/5
         public ActionResult Edit(int? id)
@@ -106,7 +129,7 @@ namespace CanTeenVLU.Areas.Admin.Controllers
             return View(cATEGORY);
         }
 
-        // POST: Admin/CATEGORies/Delete/5
+        // POST: Admin/FOODs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

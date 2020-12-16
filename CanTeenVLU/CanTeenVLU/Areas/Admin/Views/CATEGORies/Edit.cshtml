@@ -1,11 +1,11 @@
 ﻿@model CanTeenVLU.Models.CATEGORY
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Chỉnh sửa";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2 style="font-family:'Times New Roman', Times, serif">Chỉnh sửa</h2>
 
 
 @using (Html.BeginForm())
@@ -13,44 +13,44 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>CATEGORY</h4>
+        <h4 style="font-family:'Times New Roman', Times, serif">DANH MỤC</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CATEGORY_CODE, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CATEGORY_CODE, new { htmlAttributes = new { @class = "form-control" , @required = true} })
-                @Html.ValidationMessageFor(model => model.CATEGORY_CODE, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" style="font-family:'Times New Roman', Times, serif" for="IMG">Mã danh mục</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CATEGORY_CODE, new { htmlAttributes = new { @class = "form-control", @required = true } })
+            @Html.ValidationMessageFor(model => model.CATEGORY_CODE, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CATEGORY_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CATEGORY_NAME, new { htmlAttributes = new { @class = "form-control", @required = true, @minLenght = "6", @maxLenght = "20" } })
-                @Html.ValidationMessageFor(model => model.CATEGORY_NAME, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" style="font-family:'Times New Roman', Times, serif" for="IMG">Tên danh mục</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CATEGORY_NAME, new { htmlAttributes = new { @class = "form-control", @required = true, @minLenght = "6", @maxLenght = "20" } })
+            @Html.ValidationMessageFor(model => model.CATEGORY_NAME, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IMAGE_URL, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IMAGE_URL, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IMAGE_URL, "", new { @class = "text-danger" })
-            </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" style="font-family:'Times New Roman', Times, serif" for="IMG">Hình ảnh</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.IMAGE_URL, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IMAGE_URL, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.STATUS, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.STATUS)
-                    @Html.ValidationMessageFor(model => model.STATUS, "", new { @class = "text-danger" })
-                </div>
+    <div class="form-group">
+        <label class="control-label col-md-2" style="font-family:'Times New Roman', Times, serif" for="IMG">Trạng thái</label>
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.STATUS)
+                @Html.ValidationMessageFor(model => model.STATUS, "", new { @class = "text-danger" })
             </div>
         </div>
+    </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

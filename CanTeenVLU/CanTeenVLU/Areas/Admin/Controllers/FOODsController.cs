@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using CanTeenVLU.Areas.Admin.Middleware;
 using CanTeenVLU.Models;
+using System.Transactions;
 
 namespace CanTeenVLU.Areas.Admin.Controllers
 {
@@ -45,22 +46,50 @@ namespace CanTeenVLU.Areas.Admin.Controllers
             return View();
         }
 
+        public ActionResult Picture(int id)
+        {
+            var path = Server.MapPath(PICTURE_PATH);
+            return File(path + id, "images");
+        }
+
         // POST: Admin/FOODs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FOOD_CODE,FOOD_NAME,CATEGORY_ID,DESCRIPTION,PRICE,IMAGE_URL,STATUS")] FOOD fOOD)
+        public ActionResult Create(FOOD model, HttpPostedFileBase img)
         {
             if (ModelState.IsValid)
             {
-                db.FOODs.Add(fOOD);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if(img != null)
+                {
+                    using (var scope = new TransactionScope())
+                    {
+                        db.FOODs.Add(model);
+                        db.SaveChanges();
+
+                        var path = Server.MapPath(PICTURE_PATH);
+                        img.SaveAs(path + model.ID);
+
+                        scope.Complete();
+                    return RedirectToAction("Index");
+
+                    }
+                }
+                else ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
             }
 
-            ViewBag.CATEGORY_ID = new SelectList(db.CATEGORies, "ID", "CATEGORY_CODE", fOOD.CATEGORY_ID);
-            return View(fOOD);
+            ViewBag.CATEGORY_ID = new SelectList(db.CATEGORies, "ID", "CATEGORY_CODE", model.CATEGORY_ID);
+            return View(model);
+        }
+
+        private const string PICTURE_PATH = "~/Images";
+        private void ValidateProduct(FOOD product)
+        {
+            if (product.PRICE < 0)
+            {
+                ModelState.AddModelError("Giá", "Giá của sản phẩm phải lớn hơn 0");
+            }
         }
 
         // GET: Admin/FOODs/Edit/5

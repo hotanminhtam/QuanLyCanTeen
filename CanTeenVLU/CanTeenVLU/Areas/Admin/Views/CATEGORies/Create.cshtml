@@ -7,56 +7,53 @@
 
 <h2>Tạo mới</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Danh mục</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.CATEGORY_CODE, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.CATEGORY_CODE, new { htmlAttributes = new { @class = "form-control",@required= true, @minLenght = "5", @maxLenght = "50"} })
-            @Html.ValidationMessageFor(model => model.CATEGORY_CODE, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.CATEGORY_NAME, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.CATEGORY_NAME, new { htmlAttributes = new { @class = "form-control", @required = true, @minLenght = "6", @maxLenght = "20" } })
-            @Html.ValidationMessageFor(model => model.CATEGORY_NAME, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <h4>Danh mục</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="IMG">Mã danh mục</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CATEGORY_CODE, new { htmlAttributes = new { @class = "form-control", @required = true, @minLenght = "5", @maxLenght = "50" } })
+                @Html.ValidationMessageFor(model => model.CATEGORY_CODE, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.IMAGE_URL, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <input type="button" name="button" class="button1" value="Image" style="border-radius:12px" />
+        <div class="form-group">
+            <label class="control-label col-md-2" for="IMG">Tên danh mục</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CATEGORY_NAME, new { htmlAttributes = new { @class = "form-control", @required = true, @minLenght = "6", @maxLenght = "20" } })
+                @Html.ValidationMessageFor(model => model.CATEGORY_NAME, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.STATUS, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            <div class="checkbox">
-                @Html.EditorFor(model => model.STATUS)
-                @Html.ValidationMessageFor(model => model.STATUS, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="IMG">Hình ảnh</label>
+            <div class="col-md-4">
+                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
+                <img id="Hình ảnh" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="IMG">Trạng thái</label>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.STATUS)
+                    @Html.ValidationMessageFor(model => model.STATUS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo" class="btn btn-default" style="border-radius:12px" /> |
+                @Html.ActionLink("Trở lại", "Index")
             </div>
         </div>
     </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Tạo" class="btn btn-default" style="border-radius:12px" />
-        </div>
-    </div>
-
-    <div>
-        @Html.ActionLink("Trở lại", "Index")
-    </div>
-</div>
 }
