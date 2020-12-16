@@ -34,14 +34,6 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CATEGORY_ID, "CATEGORY_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CATEGORY_ID", null, htmlAttributes: new { @class = "form-control", @required = true })
-                @Html.ValidationMessageFor(model => model.CATEGORY_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             <label class="control-label col-md-2" style="font-family:'Times New Roman', Times, serif" for="IMG">Mô tả</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DESCRIPTION, new { htmlAttributes = new { @class = "form-control", @required = true, @minLenght = "10", @maxLenght = "1000000" } })
@@ -60,8 +52,8 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="IMG">Hình ảnh</label>
             <div class="col-md-4">
-                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png" />
-                <img id="Hình ảnh" />
+                <input class="form-control" type="file" name="Picture" id="IMG" onchange="readPicture(this)" accept="image/jpeg,image/gif,image/png,image/jpg" />
+                <img id="Picture" />
             </div>
         </div>
 
@@ -86,3 +78,23 @@
     </div>
 }
 <br />
+
+@*@section Scripts {
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#MotaSP',
+            menubar: false
+        });
+        function readPicture(input) {
+            if (input.files && input.files[0])
+                var reader = new FileReader();
+            reader.onload = function (e) {
+                $('img#Picture').attr('src', e.target.result)
+            };
+            reader.readAsDataURL(input.files[0])
+        }
+    </script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

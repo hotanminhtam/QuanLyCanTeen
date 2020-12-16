@@ -48,7 +48,7 @@ namespace CanTeenVLU.Areas.Admin.Controllers
         public ActionResult Picture(int id)
         {
             var path = Server.MapPath(PICTURE_PATH);
-            return File(path + id, "images");
+            return File(path + id, "Images");
         }
 
         // POST: Admin/CATEGORies/Create

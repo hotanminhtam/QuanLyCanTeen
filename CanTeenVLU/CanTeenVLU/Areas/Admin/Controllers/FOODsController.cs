@@ -39,17 +39,17 @@ namespace CanTeenVLU.Areas.Admin.Controllers
             return View(fOOD);
         }
 
-        // GET: Admin/FOODs/Create
-        public ActionResult Create()
-        {
-            ViewBag.CATEGORY_ID = new SelectList(db.CATEGORies, "ID", "CATEGORY_CODE");
-            return View();
-        }
-
         public ActionResult Picture(int id)
         {
             var path = Server.MapPath(PICTURE_PATH);
             return File(path + id, "images");
+        }
+
+        // GET: Admin/FOODs/Create
+        public ActionResult Create()
+        {
+            //ViewBag.CATEGORY_ID = new SelectList(db.CATEGORies, "ID", "CATEGORY_CODE");
+            return View();
         }
 
         // POST: Admin/FOODs/Create
@@ -59,6 +59,7 @@ namespace CanTeenVLU.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(FOOD model, HttpPostedFileBase img)
         {
+            ValidateProduct(model);
             if (ModelState.IsValid)
             {
                 if(img != null)
@@ -79,11 +80,11 @@ namespace CanTeenVLU.Areas.Admin.Controllers
                 else ModelState.AddModelError("", "Hình ảnh không được tìm thấy");
             }
 
-            ViewBag.CATEGORY_ID = new SelectList(db.CATEGORies, "ID", "CATEGORY_CODE", model.CATEGORY_ID);
+            //ViewBag.CATEGORY_ID = new SelectList(db.CATEGORies, "ID", "CATEGORY_CODE", model.CATEGORY_ID);
             return View(model);
         }
 
-        private const string PICTURE_PATH = "~/Images";
+        private const string PICTURE_PATH = "~/Images/";
         private void ValidateProduct(FOOD product)
         {
             if (product.PRICE < 0)
