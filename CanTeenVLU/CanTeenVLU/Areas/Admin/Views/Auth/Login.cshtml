@@ -35,16 +35,16 @@
         <!--form-stars-here-->
         <div class="wthree-form">
             <h2 style="font-family:'Times New Roman', Times, serif">Đăng nhập tài khoản</h2>
-            <form action="@Url.Action("Login")" method="post" autocomplete="on">
+            <form action="@Url.Action("Login")" method="post" autocomplete="off" class="form-horizontal" role="form" novalidate="novalidate">
                 <div id="email" class="form-sub-w3">
-                    <input type="text" name="email" placeholder="Username " required="" style="font-family:'Times New Roman', Times, serif"/>
+                    <input type="text" name="email" placeholder="Username " required="" style="font-family:'Times New Roman', Times, serif" autocomplete="off"/>
                 </div>
                 @if (Convert.ToBoolean(Session["user-not-found"]) == true)
                 {
                     <p style="color:red">User mail not found</p>
                 }
                 <div id="password" class="form-sub-w3">
-                    <input type="password" name="password" placeholder="Password" required="" style="font-family:'Times New Roman', Times, serif"/>
+                    <input type="password" name="password" placeholder="Password" required="" style="font-family:'Times New Roman', Times, serif" autocomplete="off"/>
                 </div>
                 @if (Convert.ToBoolean(Session["password-incorrect"]) == true)
                 {

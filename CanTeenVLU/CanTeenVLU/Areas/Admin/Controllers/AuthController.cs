@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using CanTeenVLU.Models;
+using WebMatrix.WebData;
 
 namespace CanTeenVLU.Areas.Admin.Controllers
 {
@@ -49,6 +51,11 @@ namespace CanTeenVLU.Areas.Admin.Controllers
             Session["user-fullname"] = null;
             Session["user-id"] = null;
             return RedirectToAction("Login");
+        }
+
+        public ActionResult RememberMe()
+        {
+            return PartialView(new Login());
         }
     }
 }
